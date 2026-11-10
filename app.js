@@ -90,6 +90,7 @@
       treasureOrder: generatePersonalTreasureOrder(),
       auraColor: AURA_COLORS[Math.floor(Math.random() * AURA_COLORS.length)],
       eventMedal: new Array(4).fill(false),
+      appKind: "light", // 管理者・見守りの画面で、通常版と見分けるための印
       eventLastQuestPass: false,
       eventLastMedal: false,
       keyRevealed: false,
@@ -108,6 +109,7 @@
       const parsed = JSON.parse(raw);
       const base = defaultState();
       return Object.assign(base, parsed, {
+        appKind: "light",
         eventLevel:
           Array.isArray(parsed.eventLevel) && parsed.eventLevel.length === LEVEL_MAX
             ? parsed.eventLevel
