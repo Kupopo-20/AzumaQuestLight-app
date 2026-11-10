@@ -1737,7 +1737,24 @@
     }
   }
 
+  // 通常版のQR（Lightでは使わないもの）。読み込まれたら、Light用ではないことを知らせる
+  const NOT_LIGHT_CODES = [
+    "Azuma_event_Medal02",
+    "Azuma_event_Medal04",
+    "Azuma_event_LastQuestPass",
+    "Azuma_event_Ending",
+  ];
+  function isNotLightCode(text) {
+    if (NOT_LIGHT_CODES.includes(text)) return true;
+    const m = text.match(LEVEL_CODE_RE); // たからばこ11〜20
+    return !!m && parseInt(m[1], 10) > LEVEL_MAX;
+  }
+
   function handleQrCode(text) {
+    if (isNotLightCode(text)) {
+      showCameraMessage("これは あずま保育園クエストLight のQRコードではないよ");
+      return;
+    }
     if (text === DUMMY_CODE) {
       if (state.dummyUsed) {
         showCameraMessage("このQRコードは　もう　つかったよ！");
@@ -1837,7 +1854,7 @@
       return;
     }
 
-    showCameraMessage("これは　あずま保育園クエストの　QRコードでは　ないよ。");
+    showCameraMessage("これは あずま保育園クエストLight のQRコードではないよ");
   }
 
   function enterBossRoom() {
