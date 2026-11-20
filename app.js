@@ -24,7 +24,7 @@
   const ENDING_CODE = "Azuma-Light_event_Ending";
   // QRの読み取りの練習用。レベルは上がらず、レベルアップ動画だけが流れる。1人1回だけ使える
   const DUMMY_CODE = "Azuma_event_level_dummy";
-  const RECOVERY_DURATION_MS = 90 * 1000;
+  const RECOVERY_DURATION_MS = 60 * 1000;
   const MEDAL_UNLOCK_LEVEL_STEP = 5; // レベル5ごとに勲章クエストを1つ受けられるようになる
 
   // Light版のクエストは2つだけ（0:あか＝ガーゴイル、2:みどり＝サーペント）。
@@ -2151,9 +2151,12 @@
   // はDとC、6問正解まではB、8問正解まではAのみ。同じ問題は同じクイズ内で
   // 二度出さない。
   function difficultyPoolForCorrectCount(correctCount) {
-    if (correctCount < 2) return ["E", "D"];
-    if (correctCount < 4) return ["D", "C"];
-    return ["C"]; // Light版は5問なので、AとBは出さない
+    // Light版は5問。やさしい→むずかしいの順に、A〜Eの全部の難しさが出るようにする
+    if (correctCount < 1) return ["E", "D"];
+    if (correctCount < 2) return ["D", "C"];
+    if (correctCount < 3) return ["C", "B"];
+    if (correctCount < 4) return ["B", "A"];
+    return ["A"];
   }
 
   function pickNextQuestion(usedSet, correctCount) {
