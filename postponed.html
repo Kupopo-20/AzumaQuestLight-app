@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>あずま保育園クエストLight（延期のお知らせ）</title>
+<style>
+  :root {
+    --dq-navy-dark: #0c1a3d;
+    --dq-navy: #1b2d6b;
+    --dq-gold: #f4d35e;
+    --dq-white: #f5f5f5;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--dq-navy-dark);
+    color: var(--dq-white);
+    font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: max(24px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+    gap: 28px;
+  }
+  .title-banner {
+    width: min(90vw, 420px);
+    height: auto;
+  }
+  .notice {
+    width: min(100%, 420px);
+    background: var(--dq-navy);
+    border: 3px solid var(--dq-white);
+    border-radius: 10px;
+    box-shadow: 0 0 0 3px var(--dq-navy), 0 0 0 5px var(--dq-gold);
+    padding: 24px 18px;
+    text-align: center;
+    line-height: 1.8;
+  }
+  .notice h1 {
+    margin: 0 0 12px;
+    color: var(--dq-gold);
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+  }
+  .notice .date {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  .notice .date strong {
+    color: var(--dq-gold);
+    font-size: 1.6rem;
+  }
+  .notice .sub {
+    margin: 14px 0 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+  }
+</style>
+</head>
+<body>
+  <img class="title-banner" src="assets/title-banner-light.png" alt="あずま保育園クエストLight">
+  <div class="notice">
+    <h1>おしらせ</h1>
+    <p class="date">イベントは<br><strong>3月14日</strong>に<br>延期になりました</p>
+    <p class="sub">当日まで、楽しみに待っていてね！</p>
+  </div>
+</body>
+</html>
